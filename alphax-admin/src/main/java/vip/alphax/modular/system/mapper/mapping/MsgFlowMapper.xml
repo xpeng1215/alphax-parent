@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vip.alphax.modular.system.mapper.MsgFlowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="vip.alphax.modular.system.entity.MsgFlow">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="project_id" property="projectId" />
+        <result column="hospital_id" property="hospitalId" />
+        <result column="sender" property="sender" />
+        <result column="recipient" property="recipient" />
+        <result column="msg_type" property="msgType" />
+        <result column="content" property="content" />
+        <result column="result_desc" property="resultDesc" />
+        <result column="msg_status" property="msgStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="type" property="type" />
+        <result column="deletion_state" property="deletionState" />
+        <result column="temp1" property="temp1" />
+        <result column="temp2" property="temp2" />
+        <result column="temp3" property="temp3" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, project_id, hospital_id, sender, recipient, msg_type, content, result_desc, msg_status, create_time, update_time, type, deletion_state, temp1, temp2, temp3
+    </sql>
+
+</mapper>

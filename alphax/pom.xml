@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>alphax-parent</artifactId>
+        <groupId>vip.alphax</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>alphax</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>vip.alphax</groupId>
+            <artifactId>alphax-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>vip.alphax</groupId>
+            <artifactId>alphax-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>vip.alphax</groupId>
+            <artifactId>alphax-admin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 打包时过滤的文件 -->
+                <excludes>
+                    <exclude>dev/**</exclude>
+                    <exclude>dev-test/**</exclude>
+                    <exclude>prod/**</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${runtime.env}</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 分环境放置配置文件 默认dev -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <runtime.env>dev</runtime.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev-test</id>
+            <properties>
+                <runtime.env>dev-test</runtime.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <runtime.env>prod</runtime.env>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

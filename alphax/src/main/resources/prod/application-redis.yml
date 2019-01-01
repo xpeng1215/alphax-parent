@@ -1,0 +1,23 @@
+# 该配置的名称是固定的，不可以改变，否则将不能自动加载到数据源中
+spring:
+  redis:
+    #数据库索引
+    database: 0
+    host: 192.168.0.98
+    port: 6379
+    password:
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 100
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1
+        #最大空闲
+        max-idle: 100
+        #最小空闲
+        min-idle: 0
+    #连接超时时间
+    timeout: 10000
+  # spring.cache.type 指定注解缓存使用redis
+  cache:
+      type: redis
