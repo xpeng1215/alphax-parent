@@ -1,5 +1,6 @@
 package vip.alphax.generator;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -13,6 +14,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import static com.baomidou.mybatisplus.generator.config.rules.DateType.ONLY_DATE;
 
 /**
  * @auther Alpha丶X
@@ -57,7 +60,7 @@ public class CodeGenerator {
       @Override
       public void initMap() {
         Map map = new HashMap();
-        String dateTime = DateUtils.format(new Date(),DateUtils.YCHAR_06);
+        String dateTime = DateUtil.format(new Date(), DateUtil.YCHAR_06);
         map.put("dateTime",dateTime);
         setMap(map);
       }
@@ -126,9 +129,12 @@ public class CodeGenerator {
     }
     return new GlobalConfig()
             .setOutputDir(filePath)
+            .setDateType(ONLY_DATE)
+            .setIdType(IdType.UUID)
             .setAuthor(AUTHOR)
             .setBaseColumnList(true)
-            .setSwagger2(false)
+            .setSwagger2(true)
+            .setEnableCache(false)
             .setBaseResultMap(true)
             .setOpen(false);
   }
@@ -148,7 +154,7 @@ public class CodeGenerator {
             .setEntity("/templates-generator/entity.java.vm")
             .setMapper("/templates-generator/mapper.java.vm")
             .setXml("/templates-generator/mapper.xml.vm")
-    ;
+            ;
   }
 
   /**

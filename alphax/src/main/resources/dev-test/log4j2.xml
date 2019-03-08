@@ -69,7 +69,7 @@
         <logger name="io.netty" level="INFO"></logger>
         <logger name="org.apache.http" level="INFO"></logger>
         <logger name="io.lettuce.core" level="INFO"></logger>
-        <root level="all">
+        <root level="INFO">
             <appender-ref ref="RollingFileInfo"/>
             <appender-ref ref="RollingFileWarn"/>
             <appender-ref ref="RollingFileError"/>

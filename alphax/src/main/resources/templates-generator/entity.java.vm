@@ -3,6 +3,7 @@ package ${package.Entity};
 #foreach($pkg in ${table.importPackages})
 import ${pkg};
 #end
+import com.baomidou.mybatisplus.annotation.*;
 #if(${swagger2})
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,9 +28,7 @@ import lombok.experimental.Accessors;
 #end
 @Accessors(chain = true)
 #end
-#if(${table.convert})
 @TableName("${table.name}")
-#end
 #if(${swagger2})
 @ApiModel(value="${entity}对象", description="$!{table.comment}")
 #end
@@ -74,7 +73,7 @@ public class ${entity} implements Serializable {
 #else
     @TableField(fill = FieldFill.${field.fill})
 #end
-#elseif(${field.convert})
+#else
     @TableField("${field.name}")
 #end
 ## 乐观锁注解

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vip.alphax.modular.system.mapper.HospitalMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="vip.alphax.modular.system.entity.Hospital">
+        <id column="hospital_id" property="hospitalId" />
+        <result column="project_id" property="projectId" />
+        <result column="branch_id" property="branchId" />
+        <result column="huatuo_hospital_id" property="huatuoHospitalId" />
+        <result column="name" property="name" />
+        <result column="abbr_name" property="abbrName" />
+        <result column="icon" property="icon" />
+        <result column="province" property="province" />
+        <result column="city" property="city" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="detail_url" property="detailUrl" />
+        <result column="detail_icon" property="detailIcon" />
+        <result column="hospital_level" property="hospitalLevel" />
+        <result column="property" property="property" />
+        <result column="is_pt" property="isPt" />
+        <result column="createdby" property="createdby" />
+        <result column="createdon" property="createdon" />
+        <result column="modifiedby" property="modifiedby" />
+        <result column="modifiedon" property="modifiedon" />
+        <result column="deletion_state" property="deletionState" />
+        <result column="seq" property="seq" />
+        <result column="description" property="description" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        hospital_id, project_id, branch_id, huatuo_hospital_id, name, abbr_name, icon, province, city, longitude, latitude, detail_url, detail_icon, hospital_level, property, is_pt, createdby, createdon, modifiedby, modifiedon, deletion_state, seq, description
+    </sql>
+
+</mapper>
